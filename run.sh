@@ -1,4 +1,7 @@
 #!/bin/bash
-# if case of Redis restart use:
-# sudo redis-server
-nohup node ./bin/www > /var/services/homes/paczur/docs/PropertyMonitor/logs.logs 2>&1 &
+
+LOG_FILE=./logs/`date +%Y-%m-%d_%H:%M.log`
+
+npm install
+
+node ./bin/www | tee $LOG_FILE 2>&1
