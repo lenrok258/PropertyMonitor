@@ -1,18 +1,10 @@
 var fs = require('fs');
-var winston = require('winston');
 
 var config;
 
-function readConfig(){
-    config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
-    winston.info('Use following config:');
-    winston.info(JSON.stringify(config));
-    return config;
-}
-
 function getSetting(name){
+	config = JSON.parse(fs.readFileSync(`${__dirname}/config.json`, 'utf8'));
     return config[name];
 }
 
-exports.readConfig = readConfig;
 exports.getSetting = getSetting;
