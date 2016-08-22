@@ -14,12 +14,12 @@ client.on('connect', function() {
     winston.info('Connected to REDIS');
 });
 
-function saveProperty(key, property){
+function saveProperty(key, property) {
     return client.existsAsync(key).then(function(exists) {
-        if(exists){
+        if (exists) {
             winston.error('Key already exist ' + key);
             return false;
-        } else if(!exists) {
+        } else if (!exists) {
             client.set(key, JSON.stringify(property));
             return property;
         };
@@ -27,4 +27,3 @@ function saveProperty(key, property){
 }
 
 exports.saveProperty = saveProperty;
-

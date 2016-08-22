@@ -7,7 +7,7 @@ var emailConf = config.getSetting('email');
 var transporter =
     nodemailer.createTransport('smtps://' + emailConf.email + ':' + emailConf.email_password + '@poczta.o2.pl');
 
-function sendMail(payload){
+function sendMail(payload) {
     var mailOptions = {
         from: emailConf.from,
         to: emailConf.recipients,
@@ -15,21 +15,21 @@ function sendMail(payload){
         html: payload
     };
 
-// send mail with defined transport object
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
             return winston.error(error);
         }
         winston.info('Message sent: ' + info.response);
     });
 }
 
-function prepareReport(newProperties, title){
+function prepareReport(newProperties, title) {
     var payload = title + '<br><br><table>';
-    newProperties.forEach(function(prop){
+    newProperties.forEach(function(prop) {
         payload = payload +
             '<tr><td><b>' + prop.name + '</b></td>' +
-            '<td><a href=\'' + prop.url +'\'>Link do oferty</a></td></tr>';
+            '<td><a href=\'' + prop.url + '\'>Link do oferty</a></td></tr>';
     });
     payload = payload + '</table>';
     return payload;
