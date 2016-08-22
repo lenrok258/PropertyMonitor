@@ -5,7 +5,7 @@ var config = require('../config/config');
 var emailConf = config.getSetting('email');
 
 var transporter =
-    nodemailer.createTransport('smtps://' + emailConf.email + ':' + emailConf.email_password + '@smtp.gmail.com');
+    nodemailer.createTransport('smtps://' + emailConf.email + ':' + emailConf.email_password + '@poczta.o2.pl');
 
 function sendMail(payload){
     var mailOptions = {
