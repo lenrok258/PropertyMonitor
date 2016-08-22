@@ -46,7 +46,10 @@ function getProperties(olxSettings) {
             });
             var report = email.prepareReport(changedProperties, olxSettings.description);
             winston.info("We've found following announcements: " + report);
-            email.sendMail(report);
+
+            if (!_.isEmpty(changedProperties)) {
+                email.sendMail(report);
+            }
 
             var changedPropertiesReport = {
                 description: olxSettings.description,

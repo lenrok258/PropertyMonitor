@@ -11,7 +11,7 @@ function sendMail(payload) {
     var mailOptions = {
         from: emailConf.from,
         to: emailConf.recipients,
-        subject: emailConf.subject,
+        subject: `${emailConf.subject} (${new Date})`,
         html: payload
     };
 

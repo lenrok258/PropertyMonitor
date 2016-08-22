@@ -4,6 +4,7 @@ var Promise = require('bluebird');
 var winston = require('winston');
 var dao = require('../../dao/redisDao');
 var email = require('../../email/emailSender');
+var _ = require('underscore');
 
 var OLX_KEY = 'OLX';
 
@@ -37,7 +38,11 @@ function getProperties(olxSettings) {
             });
             var report = email.prepareReport(newProperties, olxSettings.description);
             winston.info("We've found following announcements: " + report);
-            email.sendMail(report);
+
+            if (!_.isEmpty(newProperties)) {
+                email.sendMail(report);
+            }
+
             var changedPropertiesReport = {
                 description: olxSettings.description,
                 changedProperties: newProperties
@@ -50,6 +55,5 @@ function getProperties(olxSettings) {
         });
     return property;
 }
-
 
 exports.getProperties = getProperties;
