@@ -8,4 +8,4 @@ npm install
 
 node index.js | tee $LOG_FILE 2>&1
 
-killall redis
+killall redis-server

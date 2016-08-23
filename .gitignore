@@ -5,3 +5,5 @@ logs/*
 node_modules
 
 config_secret.json
+
+dump.rdb
