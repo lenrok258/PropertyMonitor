@@ -24,9 +24,9 @@ function sendMail(payload) {
     });
 }
 
-function prepareReport(newProperties, title) {
+function prepareReport(newOffers, title) {
     var payload = title + '<br><br><table>';
-    newProperties.forEach(function(prop) {
+    newOffers.forEach(function(prop) {
         payload = payload +
             '<tr><td><b>' + prop.name + '</b></td>' +
             '<td><a href=\'' + prop.url + '\'>Link do oferty</a></td></tr>';

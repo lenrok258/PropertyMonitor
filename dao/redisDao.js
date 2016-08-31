@@ -14,16 +14,17 @@ client.on('connect', function() {
     winston.info('Connected to REDIS');
 });
 
-function saveProperty(key, property) {
-    return client.existsAsync(key).then(function(exists) {
-        if (exists) {
-            winston.error('Key already exist ' + key);
-            return false;
-        } else if (!exists) {
-            client.set(key, JSON.stringify(property));
-            return property;
-        };
-    });
+function saveOffer(key, offer) {
+    return client.existsAsync(key)
+        .then(function(exists) {
+            if (exists) {
+                winston.error('Key already exist ' + key);
+                return false;
+            } else if (!exists) {
+                client.set(key, JSON.stringify(offer));
+                return offer;
+            };
+        });
 }
 
-exports.saveProperty = saveProperty;
+exports.saveOffer = saveOffer;
