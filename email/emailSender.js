@@ -7,7 +7,7 @@ var emailConf = config.getSetting('email');
 var transporter =
     nodemailer.createTransport('smtps://' + emailConf.email + ':' + emailConf.email_password + '@poczta.o2.pl');
 
-function sendMail(payload) {
+function sendMail(payload, callback) {
     var mailOptions = {
         from: emailConf.from,
         to: emailConf.recipients,
@@ -16,11 +16,12 @@ function sendMail(payload) {
     };
 
     // send mail with defined transport object
-    transporter.sendMail(mailOptions, function(error, info) {
+    return transporter.sendMail(mailOptions, function(error, info) {
         if (error) {
             return winston.error(error);
         }
         winston.info('Message sent: ' + info.response);
+        callback();
     });
 }
 

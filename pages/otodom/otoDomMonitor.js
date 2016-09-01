@@ -4,7 +4,6 @@ var Promise = require('bluebird');
 var winston = require('winston');
 var _ = require('underscore');
 var dao = require('../../dao/redisDao');
-var email = require('../../email/emailSender');
 
 var OTO_DOM_KEY = 'OTO_DOM';
 var PAGE_TAG = '&page=';

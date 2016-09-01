@@ -2,7 +2,7 @@
 
 LOG_FILE=./logs/`date +%Y-%m-%d_%H:%M.log`
 
-/home/kornel/programs/redis-3.0.5/src/redis-server &
+# /home/kornel/programs/redis-3.0.5/src/redis-server &
 
 npm install
 
@@ -14,4 +14,4 @@ fi;
 
 $NODE_COMMAND index.js | tee $LOG_FILE 2>&1
 
-killall redis-server
+# killall redis-server

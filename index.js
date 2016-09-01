@@ -5,8 +5,7 @@ var Promise = require('bluebird');
 var config = require('./config/config');
 var olxMonitor = require('./pages/olx/olxMonitor');
 var otoDomMonitor = require('./pages/otodom/otoDomMonitor');
-
-winston.info('Let\'s the scrapping begin...');
+var email = require('./email/emailSender');
 
 /*var results = [];*/
 
@@ -21,18 +20,18 @@ offerPromises = [];
 
 var otoDomSettings = config.getSetting('otodom').categories;
 Promise.mapSeries(otoDomSettings, function(settings) {
-    return otoDomMonitor.getOffers(settings);
-}).then(function(offers) {
+        return otoDomMonitor.getOffers(settings);
+    })
+    .then(function(offersPerConfig) {
 
-	console.log(offers);
-
-	process.exit(0);
-})
-
-/*var report = email.prepareReport(changedOffers, olxSettings.description);
-if (!_.isEmpty(changedOffers)) {
-    console.log(`About to send email with: ${olxSettings.description}`)
-    email.sendMail(report);
-}
-*/
-
+        var emailMessage = "";
+        _.each(offersPerConfig, function(offers) {
+            if (!_.isEmpty(offers.changedOffers)) {
+                emailMessage += email.prepareReport(offers.changedOffers, offers.description) + "\n\n";
+            }
+        });
+        email.sendMail(emailMessage, function() {
+            console.log('My work here is done');
+            process.exit(0);
+        });
+    })
