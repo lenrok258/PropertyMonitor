@@ -6,7 +6,7 @@ LOG_FILE=./logs/`date +%Y-%m-%d_%H:%M.log`
 
 npm install
 
-if [ $1 = '-d' ]; then
+if [ "$#" -eq 1 ] && [ $1 = '-d' ]; then
 	NODE_COMMAND=node-debug;
 else
 	NODE_COMMAND=node;
