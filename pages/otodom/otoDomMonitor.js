@@ -22,7 +22,7 @@ function getOffers(olxSettings) {
             if (!numOfPages) {
                 numOfPages = 1;
             }
-            winston.info('Oto Dom found %s pages with offers ', numOfPages);
+            winston.info('OTO-DOM: found %s pages with offers ', numOfPages);
             var obtainedOffers = [];
             for (var page = 1; page <= numOfPages; page++) {
                 var offer = getOffersFromPage(requestOptions.uri, page);
@@ -44,6 +44,8 @@ function getOffers(olxSettings) {
             var changedOffers = savedOffers.filter(function(elem) {
                 return elem;
             });
+            winston.info('OTO-DOM: New offers count: %s', changedOffers.length);
+
             var changedOffersReport = {
                 description: olxSettings.description,
                 changedOffers: changedOffers

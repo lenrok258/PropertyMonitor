@@ -1,6 +1,7 @@
 var nodemailer = require('nodemailer');
 var winston = require('winston');
 var config = require('../config/config');
+var _ = require('underscore');
 
 var emailConf = config.getSetting('email');
 
@@ -8,6 +9,11 @@ var transporter =
     nodemailer.createTransport('smtps://' + emailConf.email + ':' + emailConf.email_password + '@poczta.o2.pl');
 
 function sendMail(payload, callback) {
+    if (_.isEmpty(payload)) {
+        callback();
+        return;
+    }
+
     var mailOptions = {
         from: emailConf.from,
         to: emailConf.recipients,
@@ -26,10 +32,10 @@ function sendMail(payload, callback) {
 }
 
 function prepareReport(newOffers, title) {
-    var payload = title + '<br><br><table>';
+    var payload = '<b>' + title + '</b><br><br><table>';
     newOffers.forEach(function(prop) {
         payload = payload +
-            '<tr><td><b>' + prop.name + '</b></td>' +
+            '<tr><td>' + prop.name + '</td>' +
             '<td><a href=\'' + prop.url + '\'>Link do oferty</a></td></tr>';
     });
     payload = payload + '</table>';

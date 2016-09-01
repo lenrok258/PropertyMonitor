@@ -3,35 +3,53 @@ var _ = require('underscore');
 var Promise = require('bluebird');
 
 var config = require('./config/config');
-var olxMonitor = require('./pages/olx/olxMonitor');
 var otoDomMonitor = require('./pages/otodom/otoDomMonitor');
+var olxMonitor = require('./pages/olx/olxMonitor');
 var email = require('./email/emailSender');
 
-/*var results = [];*/
-
-/*var olxSettings = config.getSetting('olx').categories;
-_.each(olxSettings, function(olxSetting) {
-	results.push(otoDomMonitor.getOffers(olxSetting));
-});*/
-
-//results.push(olxMonitor.getOffers(olxSettings));
-
-offerPromises = [];
-
 var otoDomSettings = config.getSetting('otodom').categories;
-Promise.mapSeries(otoDomSettings, function(settings) {
-        return otoDomMonitor.getOffers(settings);
-    })
-    .then(function(offersPerConfig) {
+var olxSettings = config.getSetting('olx').categories;
 
+var allOffers = [];
+
+function fetchOtodomData() {
+    return Promise
+        .mapSeries(otoDomSettings, function(settings) {
+            return otoDomMonitor.getOffers(settings);
+        })
+        .then(function(offers) {
+            return allOffers.push(offers);
+        })
+}
+
+function fetchOlxData() {
+    return Promise
+        .mapSeries(olxSettings, function(settings) {
+            return olxMonitor.getOffers(settings);
+        })
+        .then(function(offers) {
+            return allOffers.push(offers);
+        })
+}
+
+
+Promise
+    .all([fetchOtodomData(), fetchOlxData()])
+    .then(function() {
         var emailMessage = "";
-        _.each(offersPerConfig, function(offers) {
-            if (!_.isEmpty(offers.changedOffers)) {
-                emailMessage += email.prepareReport(offers.changedOffers, offers.description) + "\n\n";
-            }
+        _.each(allOffers, function(offersPerSrc) {
+            _.each(offersPerSrc, function(offers) {
+                    if (!_.isEmpty(offers.changedOffers)) {
+                        emailMessage += email.prepareReport(offers.changedOffers, offers.description)
+                        emailMessage += "<br/><br/>";
+                    }
+                }
+
+            );
         });
         email.sendMail(emailMessage, function() {
+            console.log(JSON.stringify(allOffers, null, 2));
             console.log('My work here is done');
             process.exit(0);
-        });
-    })
+        })
+    });
