@@ -11,8 +11,14 @@
     },
     "olx": {
         "categories": [{
-            "url": "http://olx.pl/nieruchomosci/mieszkania/sprzedaz/krakow/?search%5Bfilter_float_price%3Ato%5D=550000&search%5Bfilter_enum_floor_select%5D%5B0%5D=floor_1&search%5Bfilter_enum_floor_select%5D%5B1%5D=floor_2&search%5Bfilter_enum_floor_select%5D%5B2%5D=floor_3&search%5Bfilter_enum_floor_select%5D%5B3%5D=floor_4&search%5Bfilter_enum_floor_select%5D%5B4%5D=floor_5&search%5Bfilter_enum_floor_select%5D%5B5%5D=floor_6&search%5Bfilter_float_m%3Afrom%5D=60&search%5Bfilter_float_m%3Ato%5D=100&search%5Bdist%5D=2&search%5Bdistrict_id%5D=257",
-            "description": "OLX: Mieszkania Kraków Zwierzyniec (+2km), 60m2-100m2, do 550.000 zł, piętro 1-6"
+            "url": "http://olx.pl/nieruchomosci/mieszkania/sprzedaz/krakow/?search%5Bfilter_float_price%3Ato%5D=550000&search%5Bfilter_enum_floor_select%5D%5B0%5D=floor_6&search%5Bfilter_enum_floor_select%5D%5B1%5D=floor_5&search%5Bfilter_enum_floor_select%5D%5B2%5D=floor_4&search%5Bfilter_enum_floor_select%5D%5B3%5D=floor_3&search%5Bfilter_enum_floor_select%5D%5B4%5D=floor_2&search%5Bfilter_enum_floor_select%5D%5B5%5D=floor_1&search%5Bfilter_float_m%3Afrom%5D=60&search%5Bfilter_float_m%3Ato%5D=100&search%5Bdistrict_id%5D=257",
+            "description": "OLX: Mieszkania Kraków Zwierzyniec (+0km), 60m2-100m2, do 550.000 zł, piętro 1-6"
+        }, {
+            "url": "http://olx.pl/nieruchomosci/mieszkania/sprzedaz/krakow/?search%5Bfilter_float_price%3Ato%5D=550000&search%5Bfilter_enum_floor_select%5D%5B0%5D=floor_6&search%5Bfilter_enum_floor_select%5D%5B1%5D=floor_5&search%5Bfilter_enum_floor_select%5D%5B2%5D=floor_4&search%5Bfilter_enum_floor_select%5D%5B3%5D=floor_3&search%5Bfilter_enum_floor_select%5D%5B4%5D=floor_2&search%5Bfilter_enum_floor_select%5D%5B5%5D=floor_1&search%5Bfilter_float_m%3Afrom%5D=60&search%5Bfilter_float_m%3Ato%5D=100&search%5Bdistrict_id%5D=259",
+            "description": "OLX: Mieszkania Kraków Bronowice (+0km), 60m2-100m2, do 550.000 zł, piętro 1-6"
+        }, {
+            "url": "http://olx.pl/nieruchomosci/mieszkania/sprzedaz/krakow/?search%5Bfilter_float_price%3Ato%5D=550000&search%5Bfilter_enum_floor_select%5D%5B0%5D=floor_6&search%5Bfilter_enum_floor_select%5D%5B1%5D=floor_5&search%5Bfilter_enum_floor_select%5D%5B2%5D=floor_4&search%5Bfilter_enum_floor_select%5D%5B3%5D=floor_3&search%5Bfilter_enum_floor_select%5D%5B4%5D=floor_2&search%5Bfilter_enum_floor_select%5D%5B5%5D=floor_1&search%5Bfilter_float_m%3Afrom%5D=60&search%5Bfilter_float_m%3Ato%5D=100&search%5Bdistrict_id%5D=279",
+            "description": "OLX: Mieszkania Kraków Grzegórzki (+0km), 60m2-100m2, do 550.000 zł, piętro 1-6"
         }]
     },
     "otodom": {
@@ -20,10 +26,15 @@
             "url": "https://otodom.pl/sprzedaz/mieszkanie/krakow/?search%5Bfilter_float_price%3Afrom%5D=150000&search%5Bfilter_float_price%3Ato%5D=600000&search%5Bfilter_float_m%3Afrom%5D=60&search%5Bfilter_float_m%3Ato%5D=100&search%5Bdescription%5D=1&search%5Bdist%5D=0&search%5Bdistrict_id%5D=71&nrAdsPerPage=72",
             "description": "OTODOM: Mieszkania Kraków Zwierzyniec (+0km), 60m2-100m2, do 600.000 zł, piętro 1-6"
         }, {
-            "url": "https://otodom.pl/sprzedaz/mieszkanie/krakow/?search%5Bfilter_float_price%3Afrom%5D=150000&search%5Bfilter_float_price%3Ato%5D=600000&search%5Bfilter_float_m%3Afrom%5D=60&search%5Bfilter_float_m%3Ato%5D=100&search%5Bdescription%5D=1&search%5Bdist%5D=0&search%5Bdistrict_id%5D=13619&nrAdsPerPage=24",
-            "description": "OTODOM2: Mieszkania Kraków Mydliniki (+0km), 60m2-100m2, do 600.000 zł, piętro 1-6"
+            "url": "https://otodom.pl/sprzedaz/mieszkanie/krakow/?search%5Bfilter_float_price%3Afrom%5D=150000&search%5Bfilter_float_price%3Ato%5D=600000&search%5Bfilter_float_m%3Afrom%5D=60&search%5Bfilter_float_m%3Ato%5D=100&search%5Bdescription%5D=1&search%5Bdist%5D=0&search%5Bdistrict_id%5D=13619&nrAdsPerPage=72",
+            "description": "OTODOM: Mieszkania Kraków Mydliniki (+0km), 60m2-100m2, do 600.000 zł, piętro 1-6"
+        }, {
+            "url": "https://otodom.pl/sprzedaz/mieszkanie/krakow/?search%5Bfilter_float_price%3Afrom%5D=150000&search%5Bfilter_float_price%3Ato%5D=600000&search%5Bfilter_float_m%3Afrom%5D=60&search%5Bfilter_float_m%3Ato%5D=100&search%5Bdescription%5D=1&search%5Bdist%5D=0&search%5Bdistrict_id%5D=126939&nrAdsPerPage=72",
+            "description": "OTODOM: Mieszkania Kraków Bronowice (+0km), 60m2-100m2, do 600.000 zł, piętro 1-6"
+        }, {
+            "url": "https://otodom.pl/sprzedaz/mieszkanie/krakow/?search%5Bfilter_float_price%3Afrom%5D=150000&search%5Bfilter_float_price%3Ato%5D=600000&search%5Bfilter_float_m%3Afrom%5D=60&search%5Bfilter_float_m%3Ato%5D=100&search%5Bdescription%5D=1&search%5Bdist%5D=0&search%5Bdistrict_id%5D=58&nrAdsPerPage=72",
+            "description": "OLX: Mieszkania Kraków Grzegórzki (+0km), 60m2-100m2, do 550.000 zł, piętro 1-6"
         }]
     }
 
 }
-    
