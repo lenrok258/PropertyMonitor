@@ -6,7 +6,7 @@ var _ = require('underscore');
 var emailConf = config.getSetting('email');
 
 var transporter =
-    nodemailer.createTransport('smtps://' + emailConf.email + ':' + emailConf.email_password + '@poczta.o2.pl');
+    nodemailer.createTransport('smtps://' + emailConf.user + ':' + emailConf.email_password + '@poczta.o2.pl');
 
 function sendMail(payload, callback) {
     if (_.isEmpty(payload)) {
