@@ -2,6 +2,7 @@ var winston = require('winston');
 var _ = require('underscore');
 var Promise = require('bluebird');
 
+var db = require('./dao/fileDao');
 var config = require('./config/config');
 var otoDomMonitor = require('./pages/otodom/otoDomMonitor');
 var olxMonitor = require('./pages/olx/olxMonitor');
@@ -33,8 +34,13 @@ function fetchOlxData() {
 }
 
 
+db.openDb();
+
 Promise
-    .all([fetchOtodomData(), fetchOlxData()])
+    .all([
+        fetchOtodomData(),
+        fetchOlxData()
+    ])
     .then(function() {
         var emailMessage = "";
         _.each(allOffers, function(offersPerSrc) {
@@ -47,6 +53,9 @@ Promise
 
             );
         });
+
+        db.closeAndPersist();
+
         email.sendMail(emailMessage, function() {
             console.log(JSON.stringify(allOffers, null, 2));
             console.log('My work here is done');

@@ -2,7 +2,7 @@ var rp = require('request-promise');
 var cheerio = require('cheerio');
 var Promise = require('bluebird');
 var winston = require('winston');
-var dao = require('../../dao/redisDao');
+var dao = require('../../dao/fileDao');
 var email = require('../../email/emailSender');
 var _ = require('underscore');
 
