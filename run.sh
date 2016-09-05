@@ -10,4 +10,4 @@ else
 	NODE_COMMAND=node;
 fi;
 
-$NODE_COMMAND index.js | tee $LOG_FILE 2>&1
+$NODE_COMMAND run-once.js | tee $LOG_FILE 2>&1
