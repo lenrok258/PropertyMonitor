@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $(dirname $0)
+
 LOG_FILE=./logs/`date +%Y-%m-%d_%H:%M.log`
 
 npm install
