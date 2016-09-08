@@ -2,6 +2,7 @@
 
 LOG_FILE=./logs/`date +%Y-%m-%d_%H:%M.log`
 
+rm -rf node_modules
 npm install
 
 if [ "$#" -eq 1 ] && [ $1 = '-d' ]; then
